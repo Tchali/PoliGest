@@ -21,9 +21,14 @@ namespace PoliGest.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int aux = RegistarDadosPessoais();
-            RegistarDadosGerais(aux);
+            if (verificarCampos())
+            {
+                int aux = RegistarDadosPessoais();
+                RegistarDadosGerais(aux);
+            }
         }
+
+       
 
         private void RegistarDadosGerais(int aux)
         {
@@ -45,7 +50,28 @@ namespace PoliGest.Forms
                 MessageBox.Show("Erro no registro \n " + ex, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        private bool verificarCampos()
+        {
+            if (
+                    string.IsNullOrEmpty(tx_nome.Text)
+                 || string.IsNullOrEmpty(tx_pai.Text)
+                 || string.IsNullOrEmpty(tx_mae.Text)
+                 || string.IsNullOrEmpty(tx_numBi.Text)
+                )
+            {
+                MessageBox.Show("Verifica se todos os dados pessoais, o seu preenchimento é obrigatório!","Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if(tx_numBi.Text.Length < 14)
+            {
+                MessageBox.Show("Código do BI inválido, deve conter no mínimo 14 caracteres","Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         private int RegistarDadosPessoais()
         {
             int result = -1; 

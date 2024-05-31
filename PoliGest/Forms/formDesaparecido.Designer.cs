@@ -56,6 +56,7 @@
             label9 = new Label();
             label11 = new Label();
             tx_end_foto = new TextBox();
+            label10 = new Label();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
@@ -144,6 +145,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(label10);
             tabPage1.Controls.Add(cb_estadoCivil);
             tabPage1.Controls.Add(label6);
             tabPage1.Controls.Add(tx_numBi);
@@ -213,7 +215,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11F);
-            label5.Location = new Point(114, 162);
+            label5.Location = new Point(114, 159);
             label5.Name = "label5";
             label5.Size = new Size(41, 20);
             label5.TabIndex = 22;
@@ -233,7 +235,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F);
-            label2.Location = new Point(90, 120);
+            label2.Location = new Point(90, 117);
             label2.Name = "label2";
             label2.Size = new Size(65, 20);
             label2.TabIndex = 20;
@@ -360,6 +362,16 @@
             tx_end_foto.Size = new Size(351, 27);
             tx_end_foto.TabIndex = 27;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 11F);
+            label10.Location = new Point(68, 202);
+            label10.Name = "label10";
+            label10.Size = new Size(87, 20);
+            label10.TabIndex = 32;
+            label10.Text = "Estado civil:";
+            // 
             // formDesaparecido
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -413,5 +425,6 @@
         private Label label9;
         private Label label11;
         private TextBox tx_end_foto;
+        private Label label10;
     }
 }
