@@ -28,7 +28,7 @@ namespace PoliGest.Forms
         {
             SqlParameter[] parameters =
              {
-                  new SqlParameter("id_pessoa", aux)
+                  new SqlParameter("id_pessoal", aux)
                 , new SqlParameter("data", dt_data.Value.ToString("yyy-MM-dd"))
                 , new SqlParameter("nr_doc", tx_nr_doc.Text)
                 , new SqlParameter("descricao", tx_descricao.Text)

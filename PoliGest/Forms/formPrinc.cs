@@ -47,8 +47,8 @@ namespace PoliGest.Forms
             LEFT JOIN estado_civil ON DadosPessoais.id_estado_civil = estado_civil.id_estado
             LEFT JOIN Detencao ON DadosPessoais.id = Detencao.id_pessoa
             LEFT JOIN aprensao ON DadosPessoais.id = aprensao.id_pessoa
-            LEFT JOIN multa ON multa.id = aprensao.id_pessoa
-            WHERE aprensao.id_pessoa IS NOT NULL OR Detencao.id_pessoa IS NOT NULL;";
+            LEFT JOIN multa ON DadosPessoais.id = multa.id_pessoal
+            WHERE aprensao.id_pessoa IS NOT NULL OR Detencao.id_pessoa IS NOT NULL OR multa.id_pessoal IS NOT NULL;";
 
             DataTable dt = DatabaseHelper.ExecuteQuery(query);
             dataGridView1.DataSource = dt;
