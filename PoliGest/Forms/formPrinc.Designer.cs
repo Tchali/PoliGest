@@ -60,7 +60,7 @@
             groupBox2 = new GroupBox();
             label7 = new Label();
             comboBox1 = new ComboBox();
-            textBox1 = new TextBox();
+            tx_search = new TextBox();
             panel3 = new Panel();
             label1 = new Label();
             panel2.SuspendLayout();
@@ -406,7 +406,7 @@
             // 
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(comboBox1);
-            groupBox2.Controls.Add(textBox1);
+            groupBox2.Controls.Add(tx_search);
             groupBox2.Font = new Font("Segoe UI", 9F);
             groupBox2.Location = new Point(5, 6);
             groupBox2.Name = "groupBox2";
@@ -433,12 +433,12 @@
             comboBox1.Size = new Size(232, 23);
             comboBox1.TabIndex = 1;
             // 
-            // textBox1
+            // tx_search
             // 
-            textBox1.Location = new Point(73, 31);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(185, 23);
-            textBox1.TabIndex = 0;
+            tx_search.Location = new Point(73, 31);
+            tx_search.Name = "tx_search";
+            tx_search.Size = new Size(185, 23);
+            tx_search.TabIndex = 0;
             // 
             // panel3
             // 
@@ -525,7 +525,7 @@
         private GroupBox groupBox2;
         private Label label7;
         private ComboBox comboBox1;
-        private TextBox textBox1;
+        private TextBox tx_search;
         private DataGridViewTextBoxColumn dgId;
         private DataGridViewTextBoxColumn dgName;
         private DataGridViewTextBoxColumn dgNrBi;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -40,6 +41,7 @@ namespace PoliGest.Forms
                                 WHEN aprensao.id_pessoa IS NOT NULL THEN 'Aprensão'
                                 WHEN Detencao.id_pessoa IS NOT NULL THEN 'Detenção'
                                 WHEN multa.id_pessoal IS NOT NULL THEN 'Multa'
+                                WHEN Perdido_Achado.id_pessoa IS NOT NULL THEN 'Desaparecido'
                             ELSE 'Sem Processo'
                         END AS processo
                 FROM  DadosPessoais
@@ -48,7 +50,15 @@ namespace PoliGest.Forms
             LEFT JOIN Detencao ON DadosPessoais.id = Detencao.id_pessoa
             LEFT JOIN aprensao ON DadosPessoais.id = aprensao.id_pessoa
             LEFT JOIN multa ON DadosPessoais.id = multa.id_pessoal
-            WHERE aprensao.id_pessoa IS NOT NULL OR Detencao.id_pessoa IS NOT NULL OR multa.id_pessoal IS NOT NULL;";
+            LEFT JOIN Perdido_Achado ON DadosPessoais.id = Perdido_Achado.id_pessoa
+            WHERE (aprensao.id_pessoa IS NOT NULL OR Detencao.id_pessoa IS NOT NULL OR multa.id_pessoal IS NOT NULL OR Perdido_Achado.id_pessoa IS NOT NULL) " +
+           $"AND (DadosPessoais.NBi = '{tx_search.Text}' OR DadosPessoais.Nome like '%{tx_search.Text}%');";
+
+            //SqlParameter[] parameters =
+            // {
+            //      new SqlParameter("@search", tx_search.Text)
+            //    , new SqlParameter("@search2",$"%{tx_search.Text}%")
+            //};
 
             DataTable dt = DatabaseHelper.ExecuteQuery(query);
             dataGridView1.DataSource = dt;
